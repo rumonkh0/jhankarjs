@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometry Genius</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.50.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .sectr {
+        transition: all 0.2s ease;
+      }
+      .result {
+        width: 100%;
+        height: 40px;
+        background: gray;
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      .result div{
+        border-radius: 10px;
+        background-color: blue;
+        padding: 3px 8px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <header class="m-12">
+      <div class="navbar bg-blue-200 px-6">
+        <div class="navbar-start">
+          <div>
+            <a class="text-5xl font-bold">Interactive</a>
+            <p class="text-2xl font-medium">Geometry Genius</p>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <a id="blog-btn" class="btn font-bold text-xl">Blog</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="mx-20 sm:flex">
+        <div id="outer" class="sm:grid sm:grid-cols-3 sm:w-3/4">
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6">
+            <figure class="px-10 pt-10">
+              <img
+                src="images/triangle.png"
+                alt="triangle"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Triangle</h2>
+              <p>Area (A) = 0.5*b* h</p>
+              <form onsubmit="halfmulti(event, `Triangle`)">
+                <div class="my-7">
+                  <input
+                    id="bottom"
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="b"
+                    name="a"
+                  />cm
+                  <input
+                    id="height"
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="h"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button
+                    type="submit"
+                    id="triangle-btn"
+                    class="btn btn-primary py-4 px-16"
+                  >
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6 mb-6">
+            <figure class="px-10 pt-10">
+              <img
+                src="images/rectangle.png"
+                alt="rectangle"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Rectangle</h2>
+              <p>Area (A) = w*I</p>
+              <form onsubmit="multi(event, `Rectangle`)">
+                <div class="my-7">
+                  <input
+                    id="width"
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="w"
+                    name="a"
+                  />cm
+                  <input
+                    id="length"
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="l"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button
+                    type="submit"
+                    id="rectangle-btn"
+                    class="btn btn-primary py-4 px-16"
+                  >
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6 mb-6">
+            <figure class="px-10 pt-10">
+              <img
+                src="images/parallelogram.png"
+                alt="parallelogram"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Parallelogram</h2>
+              <p>Area (A) = b*h</p>
+              <form onsubmit="multi(event, `Parallelogram`)">
+                <div class="my-7">
+                  <input
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="b"
+                    name="a"
+                  />cm
+                  <input
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="h"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button type="submit" class="btn btn-primary py-4 px-16">
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6">
+            <figure class="px-10 pt-10">
+              <img src="images/rhombus.png" alt="rhombus" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Rhombus</h2>
+
+              <p>Area (A) = 0.5*d<sub>1</sub> *d<sub>2</sub></p>
+              <form onsubmit="halfmulti(event ,`Rhombus`)">
+                <div class="my-7">
+                  <input
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="d1"
+                    name="a"
+                  />cm
+                  <input
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="d2"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button type="submit" class="btn btn-primary py-4 px-16">
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6">
+            <figure class="px-10 pt-10">
+              <img
+                src="images/pentagon.png"
+                alt="pentagon"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Pentagon</h2>
+              <p>Area (A) = 0.5*p* b</p>
+              <form onsubmit="halfmulti(event, `Pentagon`)">
+                <div class="my-7">
+                  <input
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="p"
+                    name="a"
+                  />cm
+                  <input
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="b"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button type="submit" class="btn btn-primary py-4 px-16">
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sectr card w-72 bg-base-100 shadow-xl mb-6">
+            <figure class="px-10 pt-10">
+              <img src="images/ellipse.png" alt="ellipse" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Ellipse</h2>
+              <p>Area (A) = <span> &#8508; </span>ab</p>
+              <form onsubmit="pimulti(event, `Ellipse`)">
+                <div class="my-7">
+                  <input
+                    class="bg-slate-200 w-14 p-1 mr-2"
+                    type="text"
+                    placeholder="a"
+                    name="a"
+                  />cm
+                  <input
+                    class="bg-slate-200 w-14 p-1 mx-2"
+                    type="text"
+                    placeholder="b"
+                    name="b"
+                  />cm
+                </div>
+                <div class="card-actions">
+                  <button type="submit" class="btn btn-primary py-4 px-16">
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="results" class="results sm:w-1/4">
+          <h1
+            class="text-center text-2xl font-medium underline underline-offset-"
+          >
+            Area Calculation
+          </h1>
+          <div id="result"></div>
+          <div id="result"></div>
+          <div id="result"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
