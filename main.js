@@ -10,7 +10,7 @@ function enter(elem) {
 }
 
 function out(elem) {
-  elem.style.backgroundColor = "#2a303c";
+  elem.style.backgroundColor = null;
 }
 
 cards.forEach((elem) =>
